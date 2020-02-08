@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 export class CategoriesScreen extends Component {
   render() {
     return (
       <View style={styles.screen}>
-        <Text> CategoriesScreen </Text>
+        <Text> CategoriesScreen! </Text>
       </View>
     );
   }
