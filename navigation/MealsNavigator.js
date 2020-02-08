@@ -6,8 +6,8 @@ import { createAppContainer } from 'react-navigation';
 
 const MealsNavigator = createStackNavigator({
     Categories: CategoriesScreen,
-    CategoryMeal: CategoryMealScreen,
-    MealDetail: MealDetailScreen
+    CategoryMeals: CategoryMealScreen,
+    MealDetails: MealDetailScreen
 })
 
 export default createAppContainer(MealsNavigator)

@@ -1,22 +1,22 @@
-import React, { Component } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React, { Component } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 
 export class FavouritesScreen extends Component {
-    render() {
-        return (
-            <View style={styles.screen}>
-                <Text> FavouritesScreen </Text>
-            </View>
-        )
-    }
+  render() {
+    return (
+      <View style={styles.screen}>
+        <Text> FavouritesScreen </Text>
+      </View>
+    );
+  }
 }
 
-export default FavouritesScreen
+export default FavouritesScreen;
 
 const styles = StyleSheet.create({
-    screen: {
-        flex: 1,
-        justifyContent: "center",
-        alignContent: 'center',
-    }
+  screen: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
 });
