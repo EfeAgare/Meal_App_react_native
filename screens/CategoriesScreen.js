@@ -18,7 +18,7 @@ export class CategoriesScreen extends Component {
         onPress={() => {
           this.props.navigation.navigate({
             routeName: 'CategoryMeals',
-            params: { categoryId: item.title }
+            params: { categoryId: item.id }
           });
         }}
         style={styles.gridItem}
