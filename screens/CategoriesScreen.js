@@ -1,35 +1,54 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button, FlatList } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  FlatList,
+  TouchableOpacity,
+  Platform
+} from 'react-native';
 import { CATEGORIES } from '../data/dummy-data';
+import Colors from '../constants/Colors';
 
-const renderGridItem = ({ item }) => {
-  return (
-    <View style={styles.gridItem}>
-      <Text>{item.title}</Text>
-    </View>
-  );
-};
 export class CategoriesScreen extends Component {
+  renderGridItem = ({ item }) => {
+    return (
+      <TouchableOpacity
+        onPress={() => {
+          this.props.navigation.navigate({ routeName: 'CategoryMeals' });
+        }}
+        style={styles.gridItem}
+      >
+        <View>
+          <Text>{item.title}</Text>
+        </View>
+      </TouchableOpacity>
+    );
+  };
+
   render() {
     return (
       <FlatList
         data={CATEGORIES}
         numColumns={2}
-        renderItem={renderGridItem}
+        renderItem={this.renderGridItem}
         keyExtractor={item => item.id}
       />
-      // <View style={styles.screen}>
-      //   <Text> CategoriesScreen! </Text>
-      //   <Button
-      //     title='Go to Meals!'
-      //     onPress={() => {
-      //       this.props.navigation.navigate({ routeName: 'CategoryMeals' });
-      //     }}
-      //   />
-      // </View>
     );
   }
 }
+
+CategoriesScreen.navigationOptions = {
+  headerTitle: 'Meals Categories',
+  headerStyle: {
+    backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
+  },
+  headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor ,
+  headerTitleStyle: {
+    fontWeight: 'bold'
+  },
+};
 
 export default CategoriesScreen;
 
@@ -41,6 +60,6 @@ const styles = StyleSheet.create({
   },
   gridItem: {
     flex: 1,
-    margin: 15,
+    margin: 15
   }
 });
