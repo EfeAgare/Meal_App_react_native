@@ -1,28 +1,20 @@
 import React, { Component } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  FlatList,
-  TouchableOpacity
-} from 'react-native';
+import { StyleSheet, FlatList } from 'react-native';
 import { CATEGORIES, MEALS } from '../data/dummy-data';
+import MealItem from '../components/MealItem';
 
 export class CategoryMealScreen extends Component {
   renderMealItem = ({ item }) => {
     return (
-      <TouchableOpacity
-        onPress={() => {
+      <MealItem
+        onSelectMeal={() => {
           this.props.navigation.navigate({
             routeName: 'MealDetails',
             params: { mealId: item.id }
           });
         }}
-      >
-        <View style={styles.screen}>
-          <Text> {item.title} </Text>
-        </View>
-      </TouchableOpacity>
+        item={item}
+      />
     );
   };
   render() {
@@ -36,6 +28,7 @@ export class CategoryMealScreen extends Component {
         data={displayMeals}
         keyExtractor={item => item.id}
         renderItem={this.renderMealItem}
+        style={{ width: '100%' }}
       />
     );
   }
@@ -53,10 +46,3 @@ CategoryMealScreen.navigationOptions = navigationData => {
 
 export default CategoryMealScreen;
 
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-});
