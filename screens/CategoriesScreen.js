@@ -16,7 +16,10 @@ export class CategoriesScreen extends Component {
     return (
       <TouchableOpacity
         onPress={() => {
-          this.props.navigation.navigate({ routeName: 'CategoryMeals' });
+          this.props.navigation.navigate({
+            routeName: 'CategoryMeals',
+            params: { categoryId: item.title }
+          });
         }}
         style={styles.gridItem}
       >
@@ -44,10 +47,10 @@ CategoriesScreen.navigationOptions = {
   headerStyle: {
     backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
   },
-  headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor ,
+  headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor,
   headerTitleStyle: {
     fontWeight: 'bold'
-  },
+  }
 };
 
 export default CategoriesScreen;
