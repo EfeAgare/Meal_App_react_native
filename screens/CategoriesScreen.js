@@ -43,14 +43,7 @@ export class CategoriesScreen extends Component {
 }
 
 CategoriesScreen.navigationOptions = {
-  headerTitle: 'Meals Categories',
-  headerStyle: {
-    backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
-  },
-  headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor,
-  headerTitleStyle: {
-    fontWeight: 'bold'
-  }
+  headerTitle: 'Meals Categories'
 };
 
 export default CategoriesScreen;

@@ -5,9 +5,6 @@ import Colors from '../constants/Colors';
 
 export class CategoryMealScreen extends Component {
   render() {
-    const categoryId = this.props.navigation.getParam('categoryId');
-
-    const selectCategory = CATEGORIES.find(item => item.id === categoryId);
 
     return (
       <View style={styles.screen}>
@@ -29,14 +26,7 @@ CategoryMealScreen.navigationOptions = navigationData => {
   const selectCategory = CATEGORIES.find(item => item.id === categoryId);
 
   return {
-    headerTitle: selectCategory.title,
-    headerStyle: {
-      backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
-    },
-    headerTintColor: Platform.OS === 'android' ? 'white' : Colorsors.primaryColor,
-    headerTitleStyle: {
-      fontWeight: 'bold'
-    }
+    headerTitle: selectCategory.title
   };
 };
 
