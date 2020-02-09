@@ -3,13 +3,10 @@ import {
   StyleSheet,
   Text,
   View,
-  Button,
   FlatList,
-  TouchableOpacity,
-  Platform
+  TouchableOpacity
 } from 'react-native';
 import { CATEGORIES } from '../data/dummy-data';
-import Colors from '../constants/Colors';
 
 export class CategoriesScreen extends Component {
   renderGridItem = ({ item }) => {
@@ -23,7 +20,9 @@ export class CategoriesScreen extends Component {
         }}
         style={styles.gridItem}
       >
-        <View>
+        <View
+          style={{ ...styles.container, ...{ backgroundColor: item.color } }}
+        >
           <Text>{item.title}</Text>
         </View>
       </TouchableOpacity>
@@ -50,12 +49,21 @@ export default CategoriesScreen;
 
 const styles = StyleSheet.create({
   screen: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    flex: 1
   },
   gridItem: {
     flex: 1,
-    margin: 15
+    margin: 15,
+    height: 100
+  },
+  container: {
+    flex: 1,
+    borderRadius: 8,
+    shadowColor: 'black',
+    shadowOffset: { width: 1, height: 2 },
+    shadowOpacity: 0.26,
+    elevation: 4,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
