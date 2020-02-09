@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { MEALS } from '../data/dummy-data';
-
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import HeaderButton from '../components/HeaderButton';
 export class MealDetailScreen extends Component {
   render() {
-
     const mealId = this.props.navigation.getParam('mealId');
 
     const selectMeal = MEALS.find(item => item.id === mealId);
@@ -25,14 +25,23 @@ export class MealDetailScreen extends Component {
 }
 
 MealDetailScreen.navigationOptions = navigationData => {
-    const mealId = navigationData.navigation.getParam('mealId');
-  
-    const selectMeal = MEALS.find(item => item.id === mealId);
-  
-    return {
-      headerTitle: selectMeal.title
-    };
+  const mealId = navigationData.navigation.getParam('mealId');
+
+  const selectMeal = MEALS.find(item => item.id === mealId);
+
+  return {
+    headerTitle: selectMeal.title,
+    headerRight: () => (
+      <HeaderButtons HeaderButtonComponent={HeaderButton}>
+        <Item
+          title='Favourite'
+          iconName='ios-star'
+          onPress={() => console.log('working')}
+        />
+      </HeaderButtons>
+    )
   };
+};
 
 export default MealDetailScreen;
 
