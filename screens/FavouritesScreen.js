@@ -9,7 +9,6 @@ const FavouritesScreen = props => {
   return <MealList displayMeals={favMeal} navigation={props.navigation} />;
 };
 
-
 FavouritesScreen.navigationOptions = navData => {
   return {
     headerTitle: "My Favourite Meal",
@@ -26,7 +25,5 @@ FavouritesScreen.navigationOptions = navData => {
     )
   };
 };
-
-
 
 export default FavouritesScreen;
