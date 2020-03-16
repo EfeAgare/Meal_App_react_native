@@ -82,13 +82,23 @@ const MealsFavTabNavigator =
         }
       });
 
-const FiltersNavigator = createStackNavigator({
-  Filters: FiltersScreen
-});
+const FiltersNavigator = createStackNavigator(
+  {
+    Filters: FiltersScreen
+  },
+  {
+    defaultNavigationOptions: defaultStackNavOptions
+  }
+);
 
 // createDrawerNavigator does not show a menu icon for us
 const MainNavigator = createDrawerNavigator({
-  MealsFav: MealsFavTabNavigator,
+  MealsFav: {
+    screen: MealsFavTabNavigator,
+    navigationOptions: {
+      drawerLabel: "Meals"
+    }
+  },
   Filters: FiltersNavigator
 });
 

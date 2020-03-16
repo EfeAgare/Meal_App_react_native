@@ -1,11 +1,12 @@
-import React from 'react';
+import React from "react";
 import {
   View,
   Text,
   StyleSheet,
   TouchableOpacity,
   ImageBackground
-} from 'react-native';
+} from "react-native";
+import DefaultText from "./shared/DefaultText";
 
 const MealItem = props => (
   <View style={styles.mealScreen}>
@@ -20,9 +21,9 @@ const MealItem = props => (
           </ImageBackground>
         </View>
         <View style={{ ...styles.mealRow, ...styles.mealDetail }}>
-          <Text>{props.item.duration}</Text>
-          <Text>{props.item.complexity.toUpperCase()}</Text>
-          <Text>{props.item.affordability.toUpperCase()}</Text>
+          <DefaultText>{props.item.duration}</DefaultText>
+          <DefaultText>{props.item.complexity.toUpperCase()}</DefaultText>
+          <DefaultText>{props.item.affordability.toUpperCase()}</DefaultText>
         </View>
       </View>
     </TouchableOpacity>
@@ -33,43 +34,43 @@ export default MealItem;
 
 const styles = StyleSheet.create({
   mealScreen: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
     padding: 5,
     borderRadius: 8,
-    shadowColor: 'black',
+    shadowColor: "black",
     shadowOffset: { width: 1, height: 2 },
     shadowOpacity: 0.26,
     elevation: 4,
     margin: 10
   },
   mealRow: {
-    flexDirection: 'row',
-    height: '100%',
+    flexDirection: "row",
+    height: "100%"
     // padding: 10
   },
   mealItem: {
     height: 300,
-    width: '100%',
-    backgroundColor: '#f5f5f5'
+    width: "100%",
+    backgroundColor: "#f5f5f5"
   },
   mealHeader: {
-    height: '85%'
+    height: "85%"
   },
   mealDetail: {
-    justifyContent: 'space-between',
-    height: '15%',
+    justifyContent: "space-between",
+    height: "15%",
     padding: 10,
-    alignItems: 'center'
+    alignItems: "center"
   },
   bgImage: {
-    width: '100%',
-    height: '100%',
-    justifyContent: 'flex-end'
+    width: "100%",
+    height: "100%",
+    justifyContent: "flex-end"
   },
   title: {
     fontSize: 20,
-    color: 'white',
-    backgroundColor: 'rgba(0,0,0,0.5)',
+    color: "white",
+    backgroundColor: "rgba(0,0,0,0.5)",
     paddingVertical: 5,
     paddingHorizontal: 12
   }
