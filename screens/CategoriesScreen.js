@@ -1,20 +1,22 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   StyleSheet,
   Text,
   View,
   FlatList,
   TouchableOpacity
-} from 'react-native';
-import { CATEGORIES } from '../data/dummy-data';
+} from "react-native";
+import { CATEGORIES } from "../data/dummy-data";
+import { HeaderButtons, Item } from "react-navigation-header-buttons";
+import { CustomHeaderButton } from "../components/HeaderButton";
 
-export class CategoriesScreen extends Component {
-  renderGridItem = ({ item }) => {
+const CategoriesScreen = props => {
+  const renderGridItem = ({ item }) => {
     return (
       <TouchableOpacity
         onPress={() => {
-          this.props.navigation.navigate({
-            routeName: 'CategoryMeals',
+          props.navigation.navigate({
+            routeName: "CategoryMeals",
             params: { categoryId: item.id }
           });
         }}
@@ -29,20 +31,31 @@ export class CategoriesScreen extends Component {
     );
   };
 
-  render() {
-    return (
-      <FlatList
-        data={CATEGORIES}
-        numColumns={2}
-        renderItem={this.renderGridItem}
-        keyExtractor={item => item.id}
-      />
-    );
-  }
-}
+  return (
+    <FlatList
+      data={CATEGORIES}
+      numColumns={2}
+      renderItem={renderGridItem}
+      keyExtractor={item => item.id}
+    />
+  );
+};
 
-CategoriesScreen.navigationOptions = {
-  headerTitle: 'Meals Categories'
+CategoriesScreen.navigationOptions = navData => {
+  return {
+    headerTitle: "Meals Categories",
+    headerLeft: () => (
+      <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
+        <Item
+          title="Menu"
+          iconName="ios-menu"
+          onPress={() => {
+            navData.navigation.toggleDrawer();
+          }}
+        />
+      </HeaderButtons>
+    )
+  };
 };
 
 export default CategoriesScreen;
@@ -59,11 +72,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     borderRadius: 8,
-    shadowColor: 'black',
+    shadowColor: "black",
     shadowOffset: { width: 1, height: 2 },
     shadowOpacity: 0.26,
     elevation: 4,
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: "center",
+    alignItems: "center"
   }
 });
