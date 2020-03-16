@@ -6,7 +6,6 @@ import CustomHeaderButton from "../components/HeaderButton";
 
 const FavouritesScreen = props => {
   const favMeal = MEALS.filter(meal => meal.id === "m1" || meal.id === "m2");
-  console.log(favMeal)
   return <MealList displayMeals={favMeal} navigation={props.navigation} />;
 };
 
